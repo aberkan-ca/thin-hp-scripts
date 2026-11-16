@@ -1,0 +1,27 @@
+# BIOS Network (PXE) Boot Order / Ordre de démarrage réseau BIOS
+
+Scripts pour configurer automatiquement le démarrage réseau (PXE) en première position sur des clients légers **HP ThinPro** via SSH (`hptc-bios-cfg`).
+
+## Utilisation / Usage
+
+1. **Initialiser l'environnement / Initialize environment :**
+   ```bash
+   chmod +x init.sh deploy_bios.sh clean.sh
+   ./init.sh
+   ```
+2. **Ajouter vos hôtes dans `hosts.txt` / Add your hosts in `hosts.txt` :**
+   ```text
+   192.168.1.50 PASS_WEST
+   192.168.2.60 PASS_EAST
+   192.168.3.70 PASS_CENTRAL
+   ```
+3. **Déployer / Deploy :**
+   ```bash
+   ./deploy_bios.sh
+   # Ou avec redémarrage automatique / Or with auto-reboot:
+   ./deploy_bios.sh --reboot
+   ```
+4. **Nettoyer les fichiers sensibles / Clean up sensitive files :**
+   ```bash
+   ./clean.sh
+   ```
